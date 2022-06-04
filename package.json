@@ -1,0 +1,32 @@
+{
+  "name": "porc-fest-schedule",
+  "version": "1.0.0",
+  "private": true,
+  "description": "porc-fest-schedule",
+  "author": "Matt Batman",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^4.15.2",
+    "gatsby-plugin-image": "^2.15.1",
+    "gatsby-plugin-manifest": "^4.15.1",
+    "gatsby-plugin-postcss": "^5.15.0",
+    "gatsby-plugin-react-helmet": "^5.15.0",
+    "gatsby-plugin-sharp": "^4.15.1",
+    "gatsby-plugin-sitemap": "^5.15.1",
+    "gatsby-source-filesystem": "^4.15.0",
+    "gatsby-transformer-sharp": "^4.15.1",
+    "postcss": "^8.4.14",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-helmet": "^6.1.0"
+  }
+}
