@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/porcfest-schedule-2022",
   siteMetadata: {
     title: `PorcFest Schedule`,
     siteUrl: `https://www.yourdomain.tld`
