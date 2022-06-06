@@ -18,3 +18,8 @@ th {
 tr:nth-of-type(odd) {
 	background: #eee;
 }
+
+th {
+	position: sticky;
+	top: 0;
+}
