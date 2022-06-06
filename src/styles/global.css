@@ -8,3 +8,8 @@ th {
 	padding: 0.5rem;
 	text-align: left;
 }
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+	background: #eee;
+}
