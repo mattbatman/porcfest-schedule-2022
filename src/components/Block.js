@@ -6,10 +6,10 @@ const Block = ({ data, allLocations }) => {
   return (
     <tr>
       <td>{date}</td>
-      {allLocations.map((d) => {
+      {allLocations.map((d, i) => {
         const event = find((e) => e.Location === d)(events);
         const title = event && event.Title ? event.Title : '';
-        return <td>{title}</td>;
+        return <td key={i}>{title}</td>;
       })}
     </tr>
   );
