@@ -37,17 +37,17 @@ const IndexPage = () => {
       <h1>PorcFest Schedule 2022</h1>
       <table>
         <thead>
-        <tr>
-          <th key="time"></th>
-          {allUniqueLocations.map((d) => (
-            <th key={d}>{d}</th>
-          ))}
+          <tr>
+            <th key="time"></th>
+            {allUniqueLocations.map((d) => (
+              <th key={d}>{d}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-        {data.map((d) => (
-          <Block data={d} key={d.date} allLocations={allUniqueLocations} />
-        ))}
+          {data.map((d) => (
+            <Block data={d} key={d.date} allLocations={allUniqueLocations} />
+          ))}
         </tbody>
       </table>
     </main>
