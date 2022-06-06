@@ -14,7 +14,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "fetch-schedule": "node sheets/index.js",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "prettier": "prettier --config \"./.prettierrc.json\" --write \"./src/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
@@ -35,6 +36,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "prettier": "2.6.2"
   }
 }

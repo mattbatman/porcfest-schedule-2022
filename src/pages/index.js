@@ -4,51 +4,50 @@ import scheduleData from '../data/schedule.json';
 import Block from '../components/Block';
 
 const data = scheduleData.reduce((acc, cv) => {
-      const { Date } = cv;
-      const eventIndex = findIndex(existingGroup => existingGroup.date === Date, acc);
-      
-      if (eventIndex < 0) {
-        const events = [];
-        events.push(cv)
+  const { Date } = cv;
+  const eventIndex = findIndex(
+    (existingGroup) => existingGroup.date === Date,
+    acc
+  );
 
-        acc.push({
-          date: Date,
-          events
-        })
+  if (eventIndex < 0) {
+    const events = [];
+    events.push(cv);
 
-        return acc;
-      }
+    acc.push({
+      date: Date,
+      events
+    });
 
-      acc[eventIndex].events.push(cv)
-      
-      return acc;
+    return acc;
+  }
+
+  acc[eventIndex].events.push(cv);
+
+  return acc;
 }, []);
-    
-const locations = scheduleData.map(d => d.Location);
+
+const locations = scheduleData.map((d) => d.Location);
 const allUniqueLocations = uniq(locations);
 
 const IndexPage = () => {
   return (
     <main>
       <title>PorcFest Schedule 2022</title>
-      <h1>
-        PorcFest Schedule 2022 
-      </h1>
+      <h1>PorcFest Schedule 2022</h1>
       <table>
         <tr>
           <th></th>
-          {
-            allUniqueLocations.map(d => (
-                <th key={d}>{d}</th>
-            ))
-          }
+          {allUniqueLocations.map((d) => (
+            <th key={d}>{d}</th>
+          ))}
         </tr>
-        {
-          data.map(d => <Block data={d} key={d.date} allLocations={allUniqueLocations} />)
-        }
+        {data.map((d) => (
+          <Block data={d} key={d.date} allLocations={allUniqueLocations} />
+        ))}
       </table>
     </main>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
