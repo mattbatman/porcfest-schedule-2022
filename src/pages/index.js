@@ -36,7 +36,7 @@ const IndexPage = () => {
       </h1>
       <table>
         <tr>
-          <th>Time</th>
+          <th></th>
           {
             allUniqueLocations.map(d => (
                 <th key={d}>{d}</th>
