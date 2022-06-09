@@ -9,7 +9,11 @@ const Block = ({ data, allLocations }) => {
       {allLocations.map((d, i) => {
         const event = find((e) => e.Location === d)(events);
         const title = event && event.Title ? event.Title : '';
-        return <td key={i}>{title}</td>;
+        const link = event && event.Link ? event.Link : null;
+
+        return (
+          <td key={i}>{link === null ? title : <a href={link}>{title}</a>}</td>
+        );
       })}
     </tr>
   );
