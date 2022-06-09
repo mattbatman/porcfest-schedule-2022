@@ -80,7 +80,10 @@ function processData(data) {
   // store the value in dataKeys.
   const dataKeys = data.shift();
 
-  return R.map(d => R.zipObj(dataKeys, d), data);
+  const allDataWithKeys = R.map(d => R.zipObj(dataKeys, d), data);
+  const dataWithoutEmptyRows = R.filter(row => R.not(R.isEmpty(row)), allDataWithKeys);
+
+  return dataWithoutEmptyRows;
 }
 
 // writeData :: Record -> Void
