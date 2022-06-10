@@ -28,8 +28,6 @@ const data = scheduleData.reduce((acc, cv) => {
   return acc;
 }, []);
 
-console.log(data);
-
 const IndexPage = () => {
   return (
     <main className="list-page">
