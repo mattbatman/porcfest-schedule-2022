@@ -5,7 +5,7 @@ const ListRow = ({ date, events }) => {
     <>
       {events.map(({ Date, Title, Link, Duration, Location }, i) => (
         <tr key={i}>
-          {i === 0 ? <td rowspan={events.length}>{Date}</td> : null}
+          {i === 0 ? <td rowSpan={events.length}>{Date}</td> : null}
           <td>
             <a href={Link}>{Title}</a>
           </td>
