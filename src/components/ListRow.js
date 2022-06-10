@@ -1,25 +1,19 @@
 import React from 'react';
 
-const Events = ({ events }) => {
-  return (
-    <>
-      {events.map(({ Title, Location, Link }) => (
-        <p key={`${Title}-${Location}`}>
-          <a href={Link}>{Title}</a> | {Location}
-        </p>
-      ))}
-    </>
-  );
-};
-
 const ListRow = ({ date, events }) => {
   return (
-    <tr>
-      <td>{date}</td>
-      <td>
-        <Events events={events} />
-      </td>
-    </tr>
+    <>
+      {events.map(({ Date, Title, Link, Duration, Location }, i) => (
+        <tr key={i}>
+          {i === 0 ? <td rowspan={events.length}>{Date}</td> : null}
+          <td>
+            <a href={Link}>{Title}</a>
+          </td>
+          <td>{Location}</td>
+          <td>{Duration}</td>
+        </tr>
+      ))}
+    </>
   );
 };
 

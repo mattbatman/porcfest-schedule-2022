@@ -33,7 +33,7 @@ const allUniqueLocations = uniq(locations);
 
 const GridPage = () => {
   return (
-    <main>
+    <main className="grid-page">
       <title>PorcFest Schedule 2022 | Grid</title>
       <h1>PorcFest Schedule 2022</h1>
       <p>
@@ -41,7 +41,7 @@ const GridPage = () => {
         <a href="https://porcfest.com/schedule/">PorcFest schedule</a>.
       </p>
       <p>
-        <Link to="/grid">List View</Link>
+        <Link to="/">List View</Link>
       </p>
       <table>
         <thead>

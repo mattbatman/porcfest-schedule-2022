@@ -32,7 +32,7 @@ console.log(data);
 
 const IndexPage = () => {
   return (
-    <main>
+    <main className="list-page">
       <title>PorcFest Schedule 2022</title>
       <h1>PorcFest Schedule 2022</h1>
       <p>
@@ -47,6 +47,8 @@ const IndexPage = () => {
           <tr>
             <th>Date</th>
             <th>Event</th>
+            <th>Location</th>
+            <th>Duration</th>
           </tr>
         </thead>
         <tbody>

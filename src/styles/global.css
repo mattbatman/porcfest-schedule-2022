@@ -20,7 +20,7 @@ td {
 	background-color: white;
 }
 
-tr:nth-of-type(odd) td {
+.grid-page tr:nth-of-type(odd) td {
 	background: #e9eaeb;
 }
 
@@ -37,7 +37,8 @@ td:first-child {
 	left: 0;
 }
 
-th:first-child {
+.grid-page th:first-child,
+.list-page th {
 	z-index: 1;
 }
 
