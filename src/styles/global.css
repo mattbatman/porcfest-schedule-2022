@@ -5,6 +5,7 @@ body {
 
 table {
 	border-collapse: collapse;
+	font-size: calc(15 / 16 * 1rem);
 }
 
 td,
@@ -13,6 +14,11 @@ th {
 	padding: 0.25rem;
 	text-align: left;
 	min-width: 105px;
+}
+
+.list-page th,
+.list-page td {
+	padding: 0.5rem;
 }
 
 /* Zebra striping */
@@ -31,8 +37,8 @@ th {
 	color: white;
 }
 
-th:first-child,
-td:first-child {
+.grid-page th:first-child,
+.grid-page td:first-child {
 	position: sticky;
 	left: 0;
 }
