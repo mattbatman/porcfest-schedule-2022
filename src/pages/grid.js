@@ -1,8 +1,8 @@
 import React from 'react';
-import { findIndex } from 'ramda';
+import { findIndex, uniq } from 'ramda';
 import { Link } from 'gatsby';
 import scheduleData from '../data/schedule.json';
-import ListRow from '../components/ListRow';
+import GridRow from '../components/GridRow';
 
 const data = scheduleData.reduce((acc, cv) => {
   const { Date } = cv;
@@ -28,30 +28,33 @@ const data = scheduleData.reduce((acc, cv) => {
   return acc;
 }, []);
 
-console.log(data);
+const locations = scheduleData.map((d) => d.Location);
+const allUniqueLocations = uniq(locations);
 
-const IndexPage = () => {
+const GridPage = () => {
   return (
     <main>
-      <title>PorcFest Schedule 2022</title>
+      <title>PorcFest Schedule 2022 | Grid</title>
       <h1>PorcFest Schedule 2022</h1>
       <p>
         This is an attempt to replicate the events from the main{' '}
         <a href="https://porcfest.com/schedule/">PorcFest schedule</a>.
       </p>
       <p>
-        <Link to="/grid">Grid View</Link>
+        <Link to="/grid">List View</Link>
       </p>
       <table>
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Event</th>
+            <th key="time"></th>
+            {allUniqueLocations.map((d) => (
+              <th key={d}>{d}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
           {data.map((d) => (
-            <ListRow key={d.date} date={d.date} events={d.events} />
+            <GridRow data={d} key={d.date} allLocations={allUniqueLocations} />
           ))}
         </tbody>
       </table>
@@ -59,4 +62,4 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default GridPage;

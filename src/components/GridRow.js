@@ -1,7 +1,7 @@
 import React from 'react';
 import { find } from 'ramda';
 
-const Block = ({ data, allLocations }) => {
+const GridRow = ({ data, allLocations }) => {
   const { date, events } = data;
   return (
     <tr>
@@ -19,4 +19,4 @@ const Block = ({ data, allLocations }) => {
   );
 };
 
-export default Block;
+export default GridRow;
