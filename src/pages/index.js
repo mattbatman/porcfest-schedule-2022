@@ -38,7 +38,7 @@ const IndexPage = () => {
         <a href="https://porcfest.com/schedule/">PorcFest schedule</a>. The
         event list below was last updated on June 16, 2022, at 9:15 am EST. To
         update these events, I run a script that pulls them from PorcFest's
-        Google Sheet. It is not automatically synced.
+        Google Sheet and generates this site. It is not synced in real time.
       </p>
       <p>
         <Link to="/grid">Grid View</Link>
