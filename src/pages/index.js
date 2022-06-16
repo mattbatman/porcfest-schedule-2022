@@ -5,7 +5,7 @@ import scheduleData from '../data/schedule.json';
 import ListRow from '../components/ListRow';
 
 const data = scheduleData.reduce((acc, cv) => {
-  const { Date } = cv;
+  const Date = cv['Readable date'];
   const eventIndex = findIndex(
     (existingGroup) => existingGroup.date === Date,
     acc
@@ -36,9 +36,9 @@ const IndexPage = () => {
       <p>
         This is an attempt to replicate the events from the main{' '}
         <a href="https://porcfest.com/schedule/">PorcFest schedule</a>. The
-        event list below was last updated on June 16, 2022, at 9:15 am EST. To
+        event list below was last updated on June 16, 2022, at 7:15 PM EST. To
         update these events, I run a script that pulls them from PorcFest's
-        Google Sheet and generates this site. It is not synced in real time.
+        Google Sheet and generates this site. It does not sync in real time.
       </p>
       <p>
         <Link to="/grid">Grid View</Link>

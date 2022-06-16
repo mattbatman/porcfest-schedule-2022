@@ -5,7 +5,7 @@ import scheduleData from '../data/schedule.json';
 import GridRow from '../components/GridRow';
 
 const data = scheduleData.reduce((acc, cv) => {
-  const { Date } = cv;
+  const Date = cv['Readable date'];
   const eventIndex = findIndex(
     (existingGroup) => existingGroup.date === Date,
     acc
