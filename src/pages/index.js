@@ -35,7 +35,10 @@ const IndexPage = () => {
       <h1>PorcFest Schedule 2022</h1>
       <p>
         This is an attempt to replicate the events from the main{' '}
-        <a href="https://porcfest.com/schedule/">PorcFest schedule</a>.
+        <a href="https://porcfest.com/schedule/">PorcFest schedule</a>. The
+        event list below was last updated on June 16, 2022, at 9:15 am EST. To
+        update these events, I run a script that pulls them from PorcFest's
+        Google Sheet. It is not automatically synced.
       </p>
       <p>
         <Link to="/grid">Grid View</Link>

@@ -97,8 +97,10 @@ function writeSchedule(auth) {
       spreadsheetId: config.sheets.id,
       range: config.sheets.range
     },
-    (err, { data }) => {
+    (err, res) => {
       if (err) return console.log('The API returned an error: ' + err);
+
+      const { data } = res;
 
       const zippedData = processData(data.values);
       const jsonData = JSON.stringify(zippedData);
