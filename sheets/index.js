@@ -1,9 +1,10 @@
-const fs = require('fs');
-const fse = require('fs-extra');
-const readline = require('readline');
-const { google } = require('googleapis');
-const R = require('ramda');
-const config = require('./config');
+import fs from 'fs';
+import fse from 'fs-extra';
+import readline from 'readline';
+import { google } from 'googleapis';
+import * as R from 'ramda';
+import { DateTime } from 'luxon';
+import { config } from './config.js';
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
@@ -86,6 +87,52 @@ function processData(data) {
   return dataWithoutEmptyRows;
 }
 
+// sortByTime takes an arry of objects with a Date key as a string, transforms
+// the strings to dates, sorts by dates, and transforms back to strings
+//
+// example expected input
+// [
+//   {
+//     Date: 'Tue  3:00PM',
+//     'Duration (Minutes)': '120',
+//     Title: 'The Unknown History of This Movement of Ours',
+//     Lead: 'Jack Shimek',
+//     Location: 'FS: RV13 Anarchy',
+//     Link: 'https://porcfest.com/2022/06/08/detailed-schedule-for-pf2022#108'
+//   },
+//   ..
+// ]
+function sortByTime(data) {
+  const outputSpecifier = 'ccc t';
+  const doubleSpacedSpecifier = 'ccc  h:mma'
+  const dateToString = t => t.toFormat(outputSpecifier);
+  const doubleSpacedConverter = t => DateTime.fromFormat(t, doubleSpacedSpecifier)
+
+  const convertToDate = R.map(d => {
+    const date = doubleSpacedConverter(d.Date);
+    
+    return {
+      ...d,
+      Date: date,
+    }
+  });
+
+  const convertToString = R.map(d => ({
+    ...d,
+    Date: dateToString(d.Date),
+  }));
+
+  const sortByDateComparison = R.sortBy(R.prop('Date'));
+
+  const getDataSortedByTime = R.pipe(
+    convertToDate,
+    sortByDateComparison,
+    convertToString
+  );
+
+  return getDataSortedByTime(data);
+}
+
 // writeData :: Record -> Void
 // writeData takes a Google Auth record and writes the data from the sheet to
 // a json file.
@@ -103,7 +150,8 @@ function writeSchedule(auth) {
       const { data } = res;
 
       const zippedData = processData(data.values);
-      const jsonData = JSON.stringify(zippedData);
+      const sortedByDateTime = sortByTime(zippedData);
+      const jsonData = JSON.stringify(sortedByDateTime);
 
       fse.outputFile(config.sheets.outputPath, jsonData, 'utf8', error =>
         console.error(error)
