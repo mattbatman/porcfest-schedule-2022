@@ -4,8 +4,7 @@ const ListRow = ({ date, events }) => {
   return (
     <>
       {events.map((event, i) => {
-        const { Title, Link, Location } = event;
-        const Date = event['Readable date']
+        const { Date, Title, Link, Location } = event;
         return (
           <tr key={i}>
             {i === 0 ? <td rowSpan={events.length}>{Date}</td> : null}
