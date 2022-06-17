@@ -8,6 +8,10 @@ The Google Sheets is the publicly available [PorcFest schedule](https://docs.goo
 
 See the prerequisites for a [Google Sheets API](https://developers.google.com/sheets/api/quickstart/nodejs) project, notably: create a Google Cloud Platform project for yourself, create the credentials, and download them to this project at `sheets/credentials.json`.
 
+*NOTE*
+
+As a hack workaround to some module and dependency conflicts, before running `npm run fetch-schedule`, add `"type": "module",` to the `package.json`. Remove this before running `npm run develop` or `npm run deploy`.
+
 ```
 # Install the project dependencies
 npm install
